@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="UTF-8">
+    <title>Markdown Helpers | Assemble Boilerplate</title>
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/github.css">
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Navigation component -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">Assemble Boilerplate</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li> <a href="markdown.html">Markdown</a> </li>
+            <li> <a href="readme.html">Readme</a> </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li> <a href="about.html">About</a> </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Subhead component -->
+    <div class="bs-header" id="content">
+      <div class="container">
+        <h1>Markdown Helpers</h1>
+        <p>Examples of how to compile markdown files to HTML using Handlebars helpers.</p>
+      </div>
+    </div>
+
+    <!-- Callout component -->
+    <div class="bs-old-docs">
+      <div class="container">
+        <strong>
+      Need help? Visit Assemble's <a href="https://github.com/assemble/assemble/">GitHub repo</a> or visit the <a href="http://assemble.io/docs">Assemble docs</a> to learn more!
+    </strong>
+      </div>
+    </div>
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              <li> <a href="#example-1">Basic markdown include</a> </li>
+              <li> <a href="#example-2">Glob patterns</a> </li>
+              <li> <a href="#example-3">YAML Front Matter</a> </li>
+              <li> <a href="#example-4">Markdown block helper</a> </li>
+              <li> <a href="#example-5">Lodash Templates: Local data</a> </li>
+              <li> <a href="#example-6">Lodash Templates: Global data</a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <div class="wordcount">
+
+            <!-- Header -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Markdown Helpers
+                  <a href="#Markdown Helpers" name="Markdown Helpers" class="anchor">
+                    <span class="anchor-target" id="Markdown Helpers"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+                <span class="label-wordcount" data-wordcount="2189">2189&nbsp;words</span>,
+                <span class="label-reading-time" data-reading-time="8 min">8 min&nbsp;read</span>
+              </div>
+              <p class="lead">Examples of how to compile markdown files to HTML using Handlebars helpers.</p>
+              <div id="toc">
+                <ul id="toc-list" class="">
+                  <li> <a href="#Markdown Helpers">Markdown Helpers</a> </li>
+                  <li> <a href="#example-1">Example 1: Basic markdown include</a> </li>
+                  <li> <a href="#example-2">Example 2: Glob patterns</a> </li>
+                  <li>
+                    <ul>
+                      <li> <a href="#blockquotes">Blockquotes</a> </li>
+                      <li> <a href="#body-copy">Body Copy</a> </li>
+                      <li> <a href="#emphasis">Emphasis</a> </li>
+                      <li> <a href="#bold">Bold</a> </li>
+                      <li> <a href="#italics">Italics</a> </li>
+                      <li> <a href="#headings">Headings</a> </li>
+                    </ul>
+                  </li>
+                  <li> <a href="#h1-heading">h1 Heading</a> </li>
+                  <li>
+                    <ul>
+                      <li> <a href="#h2-heading">h2 Heading</a> </li>
+                      <li> <a href="#h3-heading">h3 Heading</a> </li>
+                      <li> <a href="#h4-heading">h4 Heading</a> </li>
+                      <li> <a href="#lists">Lists</a> </li>
+                      <li> <a href="#unordered">Unordered</a> </li>
+                      <li> <a href="#ordered">Ordered</a> </li>
+                    </ul>
+                  </li>
+                  <li> <a href="#example-3">Example 3: YAML Front Matter</a> </li>
+                  <li>
+                    <ul>
+                      <li> <a href="#images">Images</a> </li>
+                      <li> <a href="#links">Links</a> </li>
+                      <li> <a href="#basic-link">Basic link</a> </li>
+                      <li> <a href="#add-a-title">Add a title</a> </li>
+                      <li> <a href="#code">Code</a> </li>
+                      <li> <a href="#inline-code">Inline code</a> </li>
+                      <li> <a href="#indented-code">Indented code</a> </li>
+                      <li> <a href="#block-code-fences-">Block code "fences"</a> </li>
+                      <li> <a href="#syntax-highlighting">Syntax highlighting</a> </li>
+                      <li> <a href="#tables">Tables</a> </li>
+                      <li> <a href="#right-aligned-text">Right aligned text</a> </li>
+                    </ul>
+                  </li>
+                  <li> <a href="#example-4">Example 4: Markdown block helper</a> </li>
+                  <li> <a href="#example-5">Lodash Templates: Local data</a> </li>
+                  <li>
+                    <ul>
+                      <li> <a href="#code">Code</a> </li>
+                      <li> <a href="#inline-code">Inline code</a> </li>
+                      <li> <a href="#indented-code">Indented code</a> </li>
+                      <li> <a href="#block-code-fences-">Block code "fences"</a> </li>
+                      <li> <a href="#syntax-highlighting">Syntax highlighting</a> </li>
+                      <li> <a href="#tables">Tables</a> </li>
+                      <li> <a href="#right-aligned-text">Right aligned text</a> </li>
+                    </ul>
+                  </li>
+                  <li> <a href="#example-6">Lodash Templates: Global data</a> </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- {{md}} Helper. Basic -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Example 1: Basic markdown include
+                  <a href="#example-1" name="example-1" class="anchor">
+                    <span class="anchor-target" id="example-1"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">Include a file using the {{md}} helper.</p>
+              <div class="content">
+                <blockquote>
+                  <p>Some examples of different ways to use the {{md}} helper in your projects.</p>
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- {{md}} Helper. Globbing -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Example 2: Glob patterns
+                  <a href="#example-2" name="example-2" class="anchor">
+                    <span class="anchor-target" id="example-2"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">Use globbing patterns in the {{md}} helper.</p>
+              <div class="content">
+                <h2 class="docs-heading">Blockquotes
+                  <a href="#blockquotes" name="blockquotes" class="anchor">
+                    <span class="anchor-target" id="blockquotes"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <p>For quoting blocks of content from another source within your document.</p>
+                <p>Add <code>&gt;</code> before any text you want to quote.</p>
+                <pre><code class="language-markdown">Add <span class="code">`&gt;`</span> before any text you want to quote.</code></pre>
+                <p>Renders to:</p>
+                <blockquote>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                </blockquote>
+                <p>and this HTML:</p>
+                <pre><code class="language-html">&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+                <p>Blockquotes can also be nested:</p>
+                <pre><code class="language-markdown"><span class="blockquote">&gt; Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.</span>
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+&gt;&gt; Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
+odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
+&gt;&gt;&gt; Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.</code></pre>
+                <p>Renders to:</p>
+                <blockquote>
+                  <p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.</p>
+                  <blockquote>
+                    <p>Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.</p>
+                    <blockquote>
+                      <p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.</p>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+                <h2 class="docs-heading">Body Copy
+                  <a href="#body-copy" name="body-copy" class="anchor">
+                    <span class="anchor-target" id="body-copy"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <p>Body copy written as normal, plain text will be wrapped with <code>&lt;p&gt;&lt;/p&gt;</code> tags in the rendered HTML.</p>
+                <p>So this body copy:</p>
+                <pre><code class="language-markdown">Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.</code></pre>
+                <p>renders to this HTML:</p>
+                <pre><code class="language-html">&lt;p&gt;Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.&lt;/p&gt;</code></pre>
+                <h2 class="docs-heading">Emphasis
+                  <a href="#emphasis" name="emphasis" class="anchor">
+                    <span class="anchor-target" id="emphasis"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <h3 class="docs-heading">Bold
+                  <a href="#bold" name="bold" class="anchor">
+                    <span class="anchor-target" id="bold"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>For emphasizing a snippet of text with a heavier font-weight.</p>
+                <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+                <pre><code class="language-markdown"><span class="strong">**rendered as bold text**</span></code></pre>
+                <p>and this HTML</p>
+                <pre><code class="language-html">&lt;strong&gt;rendered as bold text&lt;/strong&gt;</code></pre>
+                <h3 class="docs-heading">Italics
+                  <a href="#italics" name="italics" class="anchor">
+                    <span class="anchor-target" id="italics"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>For emphasizing a snippet of text with italics.</p>
+                <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+                <pre><code class="language-markdown"><span class="emphasis">_rendered as italicized text_</span></code></pre>
+                <p>and this HTML:</p>
+                <pre><code class="language-html">&lt;em&gt;rendered as italicized text&lt;/em&gt;</code></pre>
+                <h2 class="docs-heading">Headings
+                  <a href="#headings" name="headings" class="anchor">
+                    <span class="anchor-target" id="headings"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <p>Headings from <code>h1</code> through <code>h6</code> are constructed with a <code>#</code> for each level:</p>
+                <pre><code class="language-markdown"><span class="header"># h1 Heading</span>
+<span class="header">## h2 Heading</span>
+<span class="header">### h3 Heading</span>
+<span class="header">#### h4 Heading</span>
+<span class="header">##### h5 Heading</span>
+<span class="header">###### h6 Heading</span></code></pre>
+                <p>Renders to:</p>
+                <h1 class="docs-heading">h1 Heading
+                  <a href="#h1-heading" name="h1-heading" class="anchor">
+                    <span class="anchor-target" id="h1-heading"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+                <h2 class="docs-heading">h2 Heading
+                  <a href="#h2-heading" name="h2-heading" class="anchor">
+                    <span class="anchor-target" id="h2-heading"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <h3 class="docs-heading">h3 Heading
+                  <a href="#h3-heading" name="h3-heading" class="anchor">
+                    <span class="anchor-target" id="h3-heading"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <h4 class="docs-heading">h4 Heading
+                  <a href="#h4-heading" name="h4-heading" class="anchor">
+                    <span class="anchor-target" id="h4-heading"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h4>
+                <h5 id="h5-heading">h5 Heading</h5>
+                <h6 id="h6-heading">h6 Heading</h6>
+                <p>HTML:</p>
+                <pre><code class="language-html">&lt;h1&gt;h1 Heading&lt;/h1&gt;
+&lt;h2&gt;h2 Heading&lt;/h2&gt;
+&lt;h3&gt;h3 Heading&lt;/h3&gt;
+&lt;h4&gt;h4 Heading&lt;/h4&gt;
+&lt;h5&gt;h5 Heading&lt;/h5&gt;
+&lt;h6&gt;h6 Heading&lt;/h6&gt;</code></pre>
+                <h2 class="docs-heading">Lists
+                  <a href="#lists" name="lists" class="anchor">
+                    <span class="anchor-target" id="lists"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <h3 class="docs-heading">Unordered
+                  <a href="#unordered" name="unordered" class="anchor">
+                    <span class="anchor-target" id="unordered"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>A list of items in which the order does not explicitly matter.</p>
+                <pre><code class="language-markdown"><span class="bullet">* </span>Lorem ipsum dolor sit amet
+<span class="bullet">* </span>Consectetur adipiscing elit
+<span class="bullet">* </span>Integer molestie lorem at massa
+<span class="bullet">* </span>Facilisis in pretium nisl aliquet
+<span class="bullet">* </span>Nulla volutpat aliquam velit
+  * Phasellus iaculis neque
+  * Purus sodales ultricies
+  * Vestibulum laoreet porttitor sem
+  * Ac tristique libero volutpat at
+<span class="bullet">* </span>Faucibus porta lacus fringilla vel
+<span class="bullet">* </span>Aenean sit amet erat nunc
+<span class="bullet">* </span>Eget porttitor lorem</code></pre>
+                <p>Renders to:</p>
+                <ul>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Integer molestie lorem at massa</li>
+                  <li>Facilisis in pretium nisl aliquet</li>
+                  <li>Nulla volutpat aliquam velit
+                    <ul>
+                      <li>Phasellus iaculis neque</li>
+                      <li>Purus sodales ultricies</li>
+                      <li>Vestibulum laoreet porttitor sem</li>
+                      <li>Ac tristique libero volutpat at</li>
+                    </ul>
+                  </li>
+                  <li>Faucibus porta lacus fringilla vel</li>
+                  <li>Aenean sit amet erat nunc</li>
+                  <li>Eget porttitor lorem</li>
+                </ul>
+                <p>And this HTML</p>
+                <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+  &lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+      &lt;li&gt;Vestibulum laoreet porttitor sem&lt;/li&gt;
+      &lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+  &lt;li&gt;Aenean sit amet erat nunc&lt;/li&gt;
+  &lt;li&gt;Eget porttitor lorem&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                <h3 class="docs-heading">Ordered
+                  <a href="#ordered" name="ordered" class="anchor">
+                    <span class="anchor-target" id="ordered"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>A list of items in which the order does explicitly matter.</p>
+                <pre><code class="language-markdown"><span class="bullet">1. </span>Lorem ipsum dolor sit amet
+<span class="bullet">2. </span>Consectetur adipiscing elit
+<span class="bullet">3. </span>Integer molestie lorem at massa
+<span class="bullet">4. </span>Facilisis in pretium nisl aliquet
+<span class="bullet">5. </span>Nulla volutpat aliquam velit
+<span class="bullet">6. </span>Faucibus porta lacus fringilla vel
+<span class="bullet">7. </span>Aenean sit amet erat nunc
+<span class="bullet">8. </span>Eget porttitor lorem</code></pre>
+                <p>Renders to:</p>
+                <ol>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Integer molestie lorem at massa</li>
+                  <li>Facilisis in pretium nisl aliquet</li>
+                  <li>Nulla volutpat aliquam velit</li>
+                  <li>Faucibus porta lacus fringilla vel</li>
+                  <li>Aenean sit amet erat nunc</li>
+                  <li>Eget porttitor lorem</li>
+                </ol>
+                <p>And this HTML:</p>
+                <pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+  &lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit&lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+  &lt;li&gt;Aenean sit amet erat nunc&lt;/li&gt;
+  &lt;li&gt;Eget porttitor lorem&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+              </div>
+            </div>
+
+            <!-- {{md}} Helper. YAML Front Matter -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Example 3: YAML Front Matter
+                  <a href="#example-3" name="example-3" class="anchor">
+                    <span class="anchor-target" id="example-3"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">Pass a lists of markdown files from YAML front matter to the {{md}} helper.</p>
+              <div class="content">
+                <h2 class="docs-heading">Images
+                  <a href="#images" name="images" class="anchor">
+                    <span class="anchor-target" id="images"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <p>Images have a similar syntax to links but include a preceding exclamation point.</p>
+                <pre><code class="language-markdown">!<span class="link_label">[Minion]</span>(<span class="link_url">http://octodex.github.com/images/minion.png</span>)</code></pre>
+                <p>
+                  <img src="http://octodex.github.com/images/minion.png" alt="Minion">
+                </p>
+                <p>or</p>
+                <pre><code class="language-markdown">!<span class="link_label">[Alt text]</span>(<span class="link_url">http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat"</span>)</code></pre>
+                <p>
+                  <img src="http://octodex.github.com/images/stormtroopocat.jpg" alt="Alt text" title="The Stormtroopocat">
+                </p>
+                <p>Like links, Images also have a footnote style syntax</p>
+                <pre><code class="language-markdown">![Alt text][id]</code></pre>
+                <p>
+                  <img src="http://octodex.github.com/images/dojocat.jpg" alt="Alt text" title="The Dojocat">
+                </p>
+                <p>With a reference later in the document defining the URL location:</p>
+                <pre><code>[id]: http://octodex.github.com/images/dojocat.jpg  &quot;The Dojocat&quot;</code></pre>
+                <h2 class="docs-heading">Links
+                  <a href="#links" name="links" class="anchor">
+                    <span class="anchor-target" id="links"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <h3 class="docs-heading">Basic link
+                  <a href="#basic-link" name="basic-link" class="anchor">
+                    <span class="anchor-target" id="basic-link"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <pre><code class="language-markdown"><span class="link_label">[Assemble]</span>(<span class="link_url">http://assemble.io</span>)</code></pre>
+                <p>Renders to:</p>
+                <p>
+                  <a href="http://assemble.io">Assemble</a>
+                </p>
+                <p>HTML:</p>
+                <pre><code class="language-html">&lt;a href=&quot;http://assemble.io&quot;&gt;Assemble&lt;/a&gt;</code></pre>
+                <h3 class="docs-heading">Add a title
+                  <a href="#add-a-title" name="add-a-title" class="anchor">
+                    <span class="anchor-target" id="add-a-title"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <pre><code class="language-markdown"><span class="link_label">[Upstage]</span>(<span class="link_url">https://github.com/upstage/ "Visit Upstage!"</span>)</code></pre>
+                <p>Renders to:</p>
+                <p>
+                  <a href="https://github.com/upstage/" title="Visit Upstage!">Upstage</a>
+                </p>
+                <p>HTML:</p>
+                <pre><code class="language-html">&lt;a href=&quot;https://github.com/upstage/&quot; title=&quot;Visit Upstage!&quot;&gt;Upstage&lt;/a&gt;</code></pre>
+                <hr>
+                <h2 class="docs-heading">Code
+                  <a href="#code" name="code" class="anchor">
+                    <span class="anchor-target" id="code"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <h3 class="docs-heading">Inline code
+                  <a href="#inline-code" name="inline-code" class="anchor">
+                    <span class="anchor-target" id="inline-code"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>Wrap inline snippets of code with <code>` </code>.</p>
+                <p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as &quot;inline&quot;.</p>
+                <pre><code class="language-html">For example, `&lt;section&gt;&lt;/section&gt;` should be wrapped as &quot;inline&quot;.</code></pre>
+                <h3 class="docs-heading">Indented code
+                  <a href="#indented-code" name="indented-code" class="anchor">
+                    <span class="anchor-target" id="indented-code"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>Or indent several lines of code by at least four spaces, as in:</p>
+                <pre><code class="language-js">    <span class="comment">// Some comments</span>
+    line <span class="number">1</span> of code
+    line <span class="number">2</span> of code
+    line <span class="number">3</span> of code</code></pre>
+                <pre><code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code</code></pre>
+                <h3 class="docs-heading">Block code &quot;fences&quot;
+                  <a href="#block-code-fences-" name="block-code-fences-" class="anchor">
+                    <span class="anchor-target" id="block-code-fences-"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code.</p>
+                <pre>
+``` html
+Sample text here...
+```
+</pre>
+                <pre><code>Sample text here...</code></pre>
+                <p>HTML:</p>
+                <pre><code class="language-html">&lt;pre&gt;
+  &lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;/pre&gt;</code></pre>
+                <h3 class="docs-heading">Syntax highlighting
+                  <a href="#syntax-highlighting" name="syntax-highlighting" class="anchor">
+                    <span class="anchor-target" id="syntax-highlighting"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>GFM, or &quot;GitHub Flavored Markdown&quot; also supports syntax highlighting. To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax
+                  highlighting will automatically be applied in the rendered HTML. For example, to apply syntax highlighting to JavaScript code:</p>
+                <pre>
+``` javascript
+grunt.initConfig({
+  assemble: {
+    options: {
+      assets: 'docs/assets',
+      data: 'src/data/*.{json,yml}',
+      helpers: 'src/custom-helpers.js',
+      partials: ['src/partials/**/*.{hbs,md}']
+    },
+    pages: {
+      options: {
+        layout: 'default.hbs'
+      },
+      files: {
+        './': ['src/templates/pages/index.hbs']
+      }
+    }
+  }
+};
+```
+</pre>
+                <p>Renders to:</p>
+                <pre><code class="language-javascript">grunt.initConfig({
+  assemble: {
+    options: {
+      assets: <span class="string">'docs/assets'</span>,
+      data: <span class="string">'src/data/*.{json,yml}'</span>,
+      helpers: <span class="string">'src/custom-helpers.js'</span>,
+      partials: [<span class="string">'src/partials/**/*.{hbs,md}'</span>]
+    },
+    pages: {
+      options: {
+        layout: <span class="string">'default.hbs'</span>
+      },
+      files: {
+        <span class="string">'./'</span>: [<span class="string">'src/templates/pages/index.hbs'</span>]
+      }
+    }
+  }
+};</code></pre>
+                <p>And this complicated HTML:</p>
+                <pre><code class="language-xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"highlight"</span>&gt;</span><span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>grunt<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>.<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>initConfig<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>({<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>assemble<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>assets<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'docs/assets'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>data<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/data/*.{json,yml}'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>helpers<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/custom-helpers.js'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>partials<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/partials/**/*.{hbs,md}'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>},<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>pages<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>layout<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'default.hbs'<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>},<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>files<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'./'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/templates/pages/index.hbs'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>};<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">pre</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+                <h2 class="docs-heading">Tables
+                  <a href="#tables" name="tables" class="anchor">
+                    <span class="anchor-target" id="tables"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h2>
+                <p>Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.</p>
+                <pre><code class="language-markdown">| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |</code></pre>
+                <p>Renders to:</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>data</td>
+                      <td>path to data files to supply the data that will be passed into templates.</td>
+                    </tr>
+                    <tr>
+                      <td>engine</td>
+                      <td>engine to be used for processing templates. Handlebars is the default.</td>
+                    </tr>
+                    <tr>
+                      <td>ext</td>
+                      <td>extension to be used for dest files.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>And this HTML:</p>
+                <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Option&lt;/th&gt;
+    &lt;th&gt;Description&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;data&lt;/td&gt;
+    &lt;td&gt;path to data files to supply the data that will be passed into templates.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;engine&lt;/td&gt;
+    &lt;td&gt;engine to be used for processing templates. Handlebars is the default.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;ext&lt;/td&gt;
+    &lt;td&gt;extension to be used for dest files.&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                <h3 class="docs-heading">Right aligned text
+                  <a href="#right-aligned-text" name="right-aligned-text" class="anchor">
+                    <span class="anchor-target" id="right-aligned-text"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h3>
+                <p>Adding a colon on the right side of the dashes below any heading will right align text for that column.</p>
+                <pre><code class="language-markdown">| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |</code></pre>
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="text-align:right">Option</th>
+                      <th style="text-align:right">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align:right">data</td>
+                      <td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:right">engine</td>
+                      <td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:right">ext</td>
+                      <td style="text-align:right">extension to be used for dest files.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- {{markdown}} helper -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Example 4: Markdown block helper
+                  <a href="#example-4" name="example-4" class="anchor">
+                    <span class="anchor-target" id="example-4"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">Use the {{markdown}} block helper to write markdown inline with HTML.</p>
+              <div class="content">
+                <blockquote>
+                  <p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.</p>
+                </blockquote>
+                <ul>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Integer molestie lorem at massa</li>
+                  <li>Facilisis in pretium nisl aliquet</li>
+                  <li>Nulla volutpat aliquam velit
+                    <ul>
+                      <li>Phasellus iaculis neque</li>
+                      <li>Purus sodales ultricies</li>
+                      <li>Vestibulum laoreet porttitor sem</li>
+                      <li>Ac tristique libero volutpat at</li>
+                    </ul>
+                  </li>
+                  <li>Faucibus porta lacus fringilla vel</li>
+                  <li>Aenean sit amet erat nunc</li>
+                  <li>Eget porttitor lorem</li>
+                </ul>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr>
+
+            <!-- Lodash templates. "Local" data -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Lodash Templates: Local data
+                  <a href="#example-5" name="example-5" class="anchor">
+                    <span class="anchor-target" id="example-5"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">Examples of how to compile markdown files to HTML using Handlebars helpers.</p>
+              <h2 class="docs-heading">Code
+                <a href="#code" name="code" class="anchor">
+                  <span class="anchor-target" id="code"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h2>
+              <h3 class="docs-heading">Inline code
+                <a href="#inline-code" name="inline-code" class="anchor">
+                  <span class="anchor-target" id="inline-code"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h3>
+              <p>Wrap inline snippets of code with <code>` </code>.</p>
+              <p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as &quot;inline&quot;.</p>
+              <pre><code class="language-html">For example, `&lt;section&gt;&lt;/section&gt;` should be wrapped as &quot;inline&quot;.</code></pre>
+              <h3 class="docs-heading">Indented code
+                <a href="#indented-code" name="indented-code" class="anchor">
+                  <span class="anchor-target" id="indented-code"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h3>
+              <p>Or indent several lines of code by at least four spaces, as in:</p>
+              <pre><code class="language-js">    <span class="comment">// Some comments</span>
+    line <span class="number">1</span> of code
+    line <span class="number">2</span> of code
+    line <span class="number">3</span> of code</code></pre>
+              <pre><code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code</code></pre>
+              <h3 class="docs-heading">Block code &quot;fences&quot;
+                <a href="#block-code-fences-" name="block-code-fences-" class="anchor">
+                  <span class="anchor-target" id="block-code-fences-"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h3>
+              <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code.</p>
+              <pre>
+``` html
+Sample text here...
+```
+</pre>
+              <pre><code>Sample text here...</code></pre>
+              <p>HTML:</p>
+              <pre><code class="language-html">&lt;pre&gt;
+  &lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;/pre&gt;</code></pre>
+              <h3 class="docs-heading">Syntax highlighting
+                <a href="#syntax-highlighting" name="syntax-highlighting" class="anchor">
+                  <span class="anchor-target" id="syntax-highlighting"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h3>
+              <p>GFM, or &quot;GitHub Flavored Markdown&quot; also supports syntax highlighting. To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax
+                highlighting will automatically be applied in the rendered HTML. For example, to apply syntax highlighting to JavaScript code:</p>
+              <pre>
+``` javascript
+grunt.initConfig({
+  assemble: {
+    options: {
+      assets: 'docs/assets',
+      data: 'src/data/*.{json,yml}',
+      helpers: 'src/custom-helpers.js',
+      partials: ['src/partials/**/*.{hbs,md}']
+    },
+    pages: {
+      options: {
+        layout: 'default.hbs'
+      },
+      files: {
+        './': ['src/templates/pages/index.hbs']
+      }
+    }
+  }
+};
+```
+</pre>
+              <p>Renders to:</p>
+              <pre><code class="language-javascript">grunt.initConfig({
+  assemble: {
+    options: {
+      assets: <span class="string">'docs/assets'</span>,
+      data: <span class="string">'src/data/*.{json,yml}'</span>,
+      helpers: <span class="string">'src/custom-helpers.js'</span>,
+      partials: [<span class="string">'src/partials/**/*.{hbs,md}'</span>]
+    },
+    pages: {
+      options: {
+        layout: <span class="string">'default.hbs'</span>
+      },
+      files: {
+        <span class="string">'./'</span>: [<span class="string">'src/templates/pages/index.hbs'</span>]
+      }
+    }
+  }
+};</code></pre>
+              <p>And this complicated HTML:</p>
+              <pre><code class="language-xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"highlight"</span>&gt;</span><span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>grunt<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>.<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>initConfig<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>({<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>assemble<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>assets<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'docs/assets'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>data<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/data/*.{json,yml}'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>helpers<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/custom-helpers.js'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>partials<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/partials/**/*.{hbs,md}'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>},<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>pages<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>layout<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'default.hbs'<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>},<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"nx"</span>&gt;</span>files<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>{<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'./'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"s1"</span>&gt;</span>'src/templates/pages/index.hbs'<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>}<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span>};<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">pre</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+              <h2 class="docs-heading">Tables
+                <a href="#tables" name="tables" class="anchor">
+                  <span class="anchor-target" id="tables"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h2>
+              <p>Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.</p>
+              <pre><code class="language-markdown">| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |</code></pre>
+              <p>Renders to:</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Option</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>data</td>
+                    <td>path to data files to supply the data that will be passed into templates.</td>
+                  </tr>
+                  <tr>
+                    <td>engine</td>
+                    <td>engine to be used for processing templates. Handlebars is the default.</td>
+                  </tr>
+                  <tr>
+                    <td>ext</td>
+                    <td>extension to be used for dest files.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>And this HTML:</p>
+              <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Option&lt;/th&gt;
+    &lt;th&gt;Description&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;data&lt;/td&gt;
+    &lt;td&gt;path to data files to supply the data that will be passed into templates.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;engine&lt;/td&gt;
+    &lt;td&gt;engine to be used for processing templates. Handlebars is the default.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;ext&lt;/td&gt;
+    &lt;td&gt;extension to be used for dest files.&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+              <h3 class="docs-heading">Right aligned text
+                <a href="#right-aligned-text" name="right-aligned-text" class="anchor">
+                  <span class="anchor-target" id="right-aligned-text"></span>
+                  <span class="glyphicon glyphicon-link"></span>
+                </a>
+              </h3>
+              <p>Adding a colon on the right side of the dashes below any heading will right align text for that column.</p>
+              <pre><code class="language-markdown">| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |</code></pre>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="text-align:right">Option</th>
+                    <th style="text-align:right">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align:right">data</td>
+                    <td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right">engine</td>
+                    <td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right">ext</td>
+                    <td style="text-align:right">extension to be used for dest files.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Lodash templates. "Global" data -->
+            <div class="bs-docs-section">
+              <div class="page-header">
+                <h1 class="docs-heading">Lodash Templates: Global data
+                  <a href="#example-6" name="example-6" class="anchor">
+                    <span class="anchor-target" id="example-6"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                  </a>
+                </h1>
+              </div>
+              <p class="lead">The most awe inspiring static site boilerplate in Northern Kentucky.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <p>Made with
+          <a href="https://github.com/assemble/assemble" target="_blank">Assemble</a>, the static site generator for Node.js, Grunt.js and Yeoman.</p>
+        <div class="bs-social">
+          <ul class="bs-social-buttons">
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+            </li>
+            <li class="follow-btn">
+              <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @assemblejs</a>
+            </li>
+            <li class="tweet-btn">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlinkert:Assemble core team.">Tweet</a>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <p>
+          <a href="https://github.com/assemble/assemble" target="_blank">Assemble</a>&nbsp;was created by
+          <a href="https://twitter.com/jonschlinkert" target="_blank">Jon Schlinkert</a>&nbsp;and
+          <a href="http://twitter.com/doowb" target="_blank">Brian Woodward</a>.</p>
+        <p>Documentation source code released under the
+          <a href="https://github.com/jonschlinkert/Newfolder/blob/master/LICENSE-MIT" target="_blank">MIT&nbsp;</a>License, documentation under
+          <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li>Currently v0.5.0</li>
+          <li class="muted">&middot;</li>
+          <li> <a href="http://assemble.io//blog/">Blog</a> </li>
+          <li class="muted">&middot;</li>
+          <li> <a href="https://github.com/jonschlinkert/Newfolder/issues?state=open/issues?state=open">Issues</a> </li>
+          <li class="muted">&middot;</li>
+          <li> <a href="https://github.com/jonschlinkert/Newfolder/blob/master/CHANGELOG.md">Changelog</a> </li>
+          <li class="muted">&middot;</li>
+          <li> <a href="https://github.com/jonschlinkert/Newfolder/releases">Releases</a> </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/highlight.js"></script>
+    <script src="http://getbootstrap.com/docs-assets/js/holder.js"></script>
+    <script src="http://getbootstrap.com/docs-assets/js/application.js"></script>
+    <script>
+      ! function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+      }(document, "script", "twitter-wjs");
+    </script>
+  </body>
+</html>
