@@ -1,4 +1,4 @@
-# Boilerplate [![NPM version](https://badge.fury.io/js/Newfolder.png)](http://badge.fury.io/js/Newfolder)
+# boilerplate [![NPM version](https://badge.fury.io/js/assemble-boilerplate.png)](http://badge.fury.io/js/assemble-boilerplate)
 
 > Boilerplate for [Assemble](https://github.com/assemble/assemble)
 

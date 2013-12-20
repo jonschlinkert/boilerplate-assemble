@@ -2,25 +2,25 @@
   "name": "assemble-boilerplate",
   "description": "The best project ever.",
   "version": "0.1.0",
-  "homepage": "https://github.com/assemble/boilerplate",
+  "homepage": "https://github.com/assemble/assemble-boilerplate",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/assemble"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/boilerplate.git"
+    "url": "https://github.com/assemble/assemble-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/boilerplate/issues"
+    "url": "https://github.com/assemble/assemble-boilerplate/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/boilerplate/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/assemble-boilerplate/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/boilerplate",
+  "main": "lib/assemble-boilerplate",
   "devDependencies": {
     "assemble": "~0.4.30",
     "assemble-contrib-anchors": "~0.1.1",
