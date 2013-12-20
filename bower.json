@@ -1,0 +1,6 @@
+{
+  "name": "boilerplate",
+  "dependencies": {
+    "bootstrap": "~3.0.3"
+  }
+}

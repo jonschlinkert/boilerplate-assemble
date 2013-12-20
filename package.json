@@ -1,0 +1,61 @@
+{
+  "name": "assemble-boilerplate",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/assemble/boilerplate",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/assemble"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/assemble/boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/assemble/boilerplate/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/assemble/boilerplate/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/boilerplate",
+  "devDependencies": {
+    "assemble": "~0.4.30",
+    "assemble-contrib-anchors": "~0.1.1",
+    "assemble-contrib-toc": "~0.1.0",
+    "assemble-contrib-wordcount": "~0.3.0",
+    "assemble-less": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-readme": "~0.1.0",
+    "handlebars-helper-ghbtns": "~0.1.0",
+    "handlebars-helper-isactive": "~0.1.0",
+    "handlebars-helper-prettify": "~0.2.1",
+    "handlebars-helper-twitter": "~0.1.2",
+    "pretty": "~0.1.1"
+  },
+  "keywords": [
+    "assemble",
+    "assembleboilerplate",
+    "assemble boilerplate",
+    "assemble-contrib-wordcount",
+    "blog generator",
+    "boilerplate",
+    "component generator",
+    "generator",
+    "grunt static site generator",
+    "handlebars",
+    "handlebars-helper-ghbtns",
+    "handlebars-helper-isactive",
+    "handlebars-helper-prettify",
+    "handlebars-helper-twitter",
+    "site generator",
+    "static site generator",
+    "templates",
+    "yeoman static site generator"
+  ]
+}
