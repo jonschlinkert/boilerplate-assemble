@@ -160,24 +160,6 @@ body {
 }
 
 
-/*
- * Callout for 2.3.2 docs
- *
- * Only appears below page headers (not on the homepage). The homepage gets its
- * own link with the masthead links.
- */
-
-.bs-old-docs {
-  padding: 15px 20px;
-  color: #777;
-  background-color: #fafafa;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #e5e5e5;
-}
-.bs-old-docs strong {
-  color: #555;
-}
-
 
 
 /*

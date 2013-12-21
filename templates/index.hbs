@@ -1,12 +1,12 @@
 ---
 title: Home
-description: <%= site.description %>
+lead: <%= site.lead %> # this is used by the subhead component
 ---
 
 <!-- Header -->
 <div class="bs-docs-section">
   <div class="page-header">
-    <h1 id="{{title}}">{{title}}</h1>
+    <h1 id="{{slugify title}}">Welcome!  {{> popover popover.anchors }}</h1>
   </div>
-  <p class="lead">{{description}}</p>
+  <p class="lead">{{site.description}}</p>
 </div>

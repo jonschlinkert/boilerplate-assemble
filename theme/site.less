@@ -6,7 +6,7 @@
 // Theme
 // -------------------------------
 @import "variables.less";
-
+@import "mixins.less";
 
 
 // Vendor libs and services
@@ -14,9 +14,7 @@
 
 // Bootstrap's styles
 @import "bootstrap.less";
-@import "mixins.less";
 @import (less) "docs.css";
-
 
 
 // Components
@@ -34,8 +32,8 @@
 @import "main-nav.less";
 @import "sidenav.less";
 @import "team.less";
+@import "belt.less";
 @import "toc.less";
-
 
 
 // Site-overrides
@@ -44,6 +42,21 @@
 // Override Bootstrap in favor of GitHub styles
 pre {
   background: #F8F8FF;
+}
+
+.btn-popover {
+  .glyphicon-question-sign {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+}
+
+.popover {
+  .glyphicon {
+    font-size: 12px;
+    margin-left: 5px;
+    color: @link-color;
+  }
 }
 
 

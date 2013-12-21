@@ -37,7 +37,7 @@ assemble:
 
 # GitHub
 username:         assemble
-name:             <%= pkg.name %>
+name:             assemble # change to <%= pkg.name %>
 download:
   source:         <%= pkg.homepage %>/archive/master.zip
 
@@ -47,7 +47,7 @@ download:
 # =============================================
 
 brand:            ASSEMBLE
-title:            Assemble Boilerplate
+title:            BOILERPLATE
 lead:             The most awe inspiring static site boilerplate in Northern Kentucky.
 
 version:          <%= pkg.version %>
@@ -56,6 +56,14 @@ license:
   type:           <%= pkg.licenses[0].type %>
   url:            <%= pkg.licenses[0].url %>
 
+
+
+# SEO/SEM
+ga:
+  id:             UA-33358518-15
+  domain:         assemble.github.io
+  siteid:         false
+  tags:           GTM-KHGHNC
 
 
 # Links
@@ -69,10 +77,6 @@ url:
   about:          <%= site.url.domain %>/about/
   blog:           <%= site.url.domain %>/blog/
 
-# SEO/SEM
-google:
-  analytics:      false
-  siteid:         false
 
 # Comments
 disqus:
@@ -84,6 +88,7 @@ social:
   twitter:
     via:          assemblejs
     username:     assemblejs
+    related:      jonschlinkert:Assemble core team.
   facebook:       false
   linkedin:       false
   gplus:          false

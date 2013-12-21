@@ -9,6 +9,11 @@
 
 module.exports = function(grunt) {
 
+  // Delete after first run
+  if(!grunt.file.exists('vendor/bootstrap')) {
+    grunt.fail.fatal('>> Please run "bower install" before continuing.');
+  }
+
   // Project configuration.
   grunt.initConfig({
 
@@ -24,6 +29,7 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
+        production: false,
         assets: '<%= site.assets %>',
         postprocess: require('pretty'),
 
@@ -66,16 +72,18 @@ module.exports = function(grunt) {
 
     // Copy Bootstrap's assets to site assets
     copy: {
-      // Delete this target after first run!!!
+      // Delete this target after first run!!! Afterwards you'll need to
+      // decide on a strategy for adding javascripts, fonts etc.
       once: {
         files: [
-          {expand: true, cwd: '<%= bootstrap %>/less',  src: ['*.*'], dest: '<%= site.theme %>/bootstrap/'},
-          {expand: true, cwd: '<%= bootstrap %>/less',  src: ['variables.less'], dest: '<%= site.theme %>/'},
-          {expand: true, cwd: '<%= bootstrap %>/less',  src: ['utilities.less'], dest: '<%= site.theme %>/utils'},
-          {expand: true, cwd: '<%= bootstrap %>/less',  src: ['mixins.less'],    dest: '<%= site.theme %>/utils'},
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['*', '!{var*,mix*,util*}'], dest: '<%= site.theme %>/bootstrap/'},
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['{var*,mix*}.less'], dest: '<%= site.theme %>/utils'},
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['variables.less'], dest: '<%= site.theme %>/'},
+          {expand: true, cwd: 'node_modules/showup', src: ['showup.js'], dest: '<%= site.assets %>/js/'},
+          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'},
         ]
       },
-      // Keep this target
+      // Keep this target as a getting started point
       assets: {
         files: [
           {expand: true, cwd: '<%= bootstrap %>/dist/fonts', src: ['*.*'], dest: '<%= site.assets %>/fonts/'},
@@ -99,7 +107,7 @@ module.exports = function(grunt) {
     clean: {
       example: ['<%= site.dest %>/*.html'],
       // Delete this target after first run!!!
-      once: ['<%= site.theme %>/bootstrap/{var*,mix*,util*}.*']
+      once: ['<%= site.theme %>/bootstrap/{var*,mix*,util*}.less']
     },
 
 
@@ -114,12 +122,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  // Delete after first run
-  if(!grunt.file.exists('vendor/bootstrap')) {
-    grunt.fail.fatal('>> Please run "bower install" before continuing.');
-  }
-
 
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');

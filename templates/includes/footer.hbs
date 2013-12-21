@@ -2,7 +2,9 @@
   <div class="container">
 
     <p>Made with <a href="https://github.com/assemble/assemble" target="_blank">Assemble</a>, the static site generator for Node.js, Grunt.js and Yeoman.</p>
-    {{> social-buttons }}
+    {{#if production}}
+      {{> social-buttons }}
+    {{/if}}
     <hr>
 
     <p><a href="https://github.com/assemble/assemble" target="_blank">Assemble </a>&nbsp;was created by <a href="https://twitter.com/jonschlinkert" target="_blank"> Jon Schlinkert </a>&nbsp;and <a href="http://twitter.com/doowb" target="_blank"> Brian Woodward</a>.</p>
@@ -20,3 +22,6 @@
     </ul>
   </div>
 </footer>
+
+<!-- "back-to-top" button -->
+<a href="#" style="right: 70px;" class="btn back-to-top btn-dark btn-fixed-bottom"> <span class="glyphicon glyphicon-chevron-up"></span> </a>
