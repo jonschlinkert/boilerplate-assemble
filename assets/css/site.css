@@ -255,7 +255,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -337,7 +337,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -4525,7 +4525,7 @@ button.close {
   left: 0;
   z-index: 1010;
   display: none;
-  max-width: 276px;
+  max-width: auto;
   padding: 1px;
   text-align: left;
   background-color: #ffffff;
@@ -5446,22 +5446,6 @@ body {
   .bs-docs-home .carbonad {
     margin-top: -25px !important;
   }
-}
-/*
- * Callout for 2.3.2 docs
- *
- * Only appears below page headers (not on the homepage). The homepage gets its
- * own link with the masthead links.
- */
-.bs-old-docs {
-  padding: 15px 20px;
-  color: #777;
-  background-color: #fafafa;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #e5e5e5;
-}
-.bs-old-docs strong {
-  color: #555;
 }
 /*
  * Docs sections
@@ -6694,6 +6678,16 @@ h6:hover .anchor .glyphicon {
   margin-right: 10px;
   border-radius: 4px;
 }
+.belt {
+  padding: 15px 20px;
+  color: #777;
+  background-color: #fafafa;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.belt strong {
+  color: #555;
+}
 #toc-list {
   list-style-type: none;
   margin: 0;
@@ -6704,6 +6698,15 @@ h6:hover .anchor .glyphicon {
 }
 pre {
   background: #F8F8FF;
+}
+.btn-popover .glyphicon-question-sign {
+  margin-left: 5px;
+  font-size: 14px;
+}
+.popover .glyphicon {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #428bca;
 }
 /*
  * Examples
