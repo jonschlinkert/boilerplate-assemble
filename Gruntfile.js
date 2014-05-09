@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     // Project metadata
     pkg   : grunt.file.readJSON('package.json'),
     vendor: grunt.file.readJSON('.bowerrc').directory,
-    site  : grunt.file.readYAML('_config.yml'),
+    site  : grunt.file.readYAML('.assemblerc.yml'),
 
     // Aliases
     bootstrap: '<%= vendor %>/bootstrap',
