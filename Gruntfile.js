@@ -141,5 +141,5 @@ module.exports = function(grunt) {
   grunt.registerTask('design', ['clean', 'assemble', 'less:site', 'watch:site']);
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean', 'jshint', 'copy:assets', 'assemble', 'less', 'readme', 'sync']);
+  grunt.registerTask('default', ['clean', 'jshint', 'copy:assets', 'assemble', 'less']);
 };
